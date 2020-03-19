@@ -1,6 +1,6 @@
 [package]
 name = "core_io"
-version = "0.1.20191201"
+version = "0.1.20200318"
 authors = ["The Rust Project Developers", "Jethro Beekman", "Scott Mabin"]
 license = "MIT/Apache-2.0"
 description = """
@@ -24,9 +24,12 @@ include = [
 
 build = "build.rs"
 
+[dependencies]
+memchr = { version = "2", default-features = false, optional = true }
+
 [build-dependencies]
 rustc_version = "0.1.7"
 
 [features]
 alloc = []
-collections = ["alloc"]
+collections = ["alloc", "memchr"]
