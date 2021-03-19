@@ -26,7 +26,7 @@ echo_lines() {
 
 get_io_commits() {
 	for COMPILER_COMMIT in $COMPILER_COMMITS; do
-		IO_COMMIT=$(git log -n1 --pretty=format:%H $COMPILER_COMMIT -- src/libstd/io)
+		IO_COMMIT=$(git log -n1 --pretty=format:%H $COMPILER_COMMIT -- library/std/io)
 		if ! grep -q $COMPILER_COMMIT mapping.rs; then
 			echo "-Mapping(\"$COMPILER_COMMIT\",\"$IO_COMMIT\")" >> mapping.rs
 		fi
